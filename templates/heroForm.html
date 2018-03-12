@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<form method="GET" action="{{ url_for('allHeroes')}}">
+	{{ heroForm.hidden_tag() }}
+	{{ heroForm.heroName.label }} {{ heroForm.heroName() }} <br>
+	{% if heroForm.heroName.errors %}
+        <ul class="errors">
+        	{% for error in heroForm.username.errors %}
+        		<li>{{ error }}</li>
+        	{% endfor %}</ul>
+    {% endif %}
+	{{ heroForm.numComics.label }} {{ heroForm.numComics() }} <br>
+	{% if heroForm.numComics.errors %}
+        <ul class="errors">
+        	{% for error in heroForm.username.errors %}
+        		<li>{{ error }}</li>
+        	{% endfor %}</ul>
+    {% endif %}
+	{{ heroForm.submit() }}
+</form>
+
+{% endblock %}

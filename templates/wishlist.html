@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<form method="POST" action="{{ url_for('showWishlist')}}">
+	{{ wishForm.hidden_tag() }}
+	{{ wishForm.comicWish.label }} {{ wishForm.comicWish }} <br>
+	{{ wishForm.submit() }}
+</form>
+
+{% for w in userWishes %}
+	{{ w }} <br>
+{% endfor %}
+
+{% endblock %}

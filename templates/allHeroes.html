@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+{% if addedHero %} <h1>{{  addedHero  }} added! {% endif %} </h1><br>
+
+<h2>All Heroes Searched:</h2>
+
+{% if not hasHeroes %}
+Sorry, there are no heroes to show. <br>
+
+{% else %}
+{% for h in heroesList %}
+	<h3>{{ h[0] }}</h3> <br>
+	<img src="{{ h[1] }}" alt="{{ h[0] }}" style="max-height:300px; max-width:300px;"> <br><br><br>
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}
